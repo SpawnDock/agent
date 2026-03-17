@@ -1,0 +1,9 @@
+{
+  "ai": "generic",
+  "ai_commands_dir": ".agents/skills/",
+  "ai_skills": true,
+  "here": true,
+  "preset": null,
+  "script": "sh",
+  "speckit_version": "0.3.1"
+}

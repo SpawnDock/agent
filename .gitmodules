@@ -1,0 +1,18 @@
+[submodule "repo/.github"]
+	path = repo/.github
+	url = git@github.com:SpawnDock/.github.git
+[submodule "repo/dev-tunnel"]
+	path = repo/dev-tunnel
+	url = git@github.com:SpawnDock/dev-tunnel.git
+[submodule "repo/mcp-client"]
+	path = repo/mcp-client
+	url = git@github.com:SpawnDock/mcp-client.git
+[submodule "repo/api"]
+	path = repo/api
+	url = git@github.com:SpawnDock/api.git
+[submodule "repo/tma-project"]
+	path = repo/tma-project
+	url = git@github.com:SpawnDock/tma-project.git
+[submodule "repo/cli"]
+	path = repo/cli
+	url = git@github.com:SpawnDock/cli.git
