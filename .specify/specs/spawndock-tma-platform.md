@@ -13,14 +13,14 @@ SpawnDock is an end-to-end platform that lets any user — regardless of program
 
 **Component map**:
 
-| Component | Package / Repo | Role |
-|-----------|---------------|------|
-| Telegram bot | `api` (private) | User entry point — project creation and discovery |
-| Bootstrap CLI | `@spawn-dock/cli` | Local project setup and AI agent isolation |
-| MCP client | `@spawn-dock/mcp` | Connects AI agent to TMA knowledge base |
-| Dev tunnel | `@spawn-dock/dev-tunnel` | Exposes local dev server for real-time preview |
-| TMA template | `tma-project` | Next.js + TON Connect + TelegramUI starter |
-| API / control plane | `api` (private) | Projects, pairing, tunnels, MCP backend |
+| Component           | Package / Repo           | Role                                              |
+|---------------------|--------------------------|---------------------------------------------------|
+| Telegram bot        | `api` (private)          | User entry point — project creation and discovery |
+| Bootstrap CLI       | `@spawn-dock/cli`        | Local project setup and AI agent isolation        |
+| MCP client          | `@spawn-dock/mcp`        | Connects AI agent to TMA knowledge base           |
+| Dev tunnel          | `@spawn-dock/dev-tunnel` | Exposes local dev server for real-time preview    |
+| TMA template        | `tma-project`            | Next.js + TON Connect + TelegramUI starter        |
+| API / control plane | `api` (private)          | Projects, pairing, tunnels, MCP backend           |
 
 ---
 

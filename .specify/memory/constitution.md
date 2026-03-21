@@ -48,14 +48,14 @@ Performance is a feature, not a phase:
 
 Every pull request must satisfy all of the following before merge:
 
-| Gate | Requirement |
-|------|-------------|
-| Linting | Zero ESLint warnings, zero TypeScript errors |
-| Unit tests | All pass; coverage does not regress |
-| Integration tests | All service-contract tests pass |
-| Bundle size | No regression beyond +5 KB gzipped |
-| Accessibility | No new axe-core violations |
-| Code review | At least one approval from a project maintainer |
+| Gate              | Requirement                                     |
+|-------------------|-------------------------------------------------|
+| Linting           | Zero ESLint warnings, zero TypeScript errors    |
+| Unit tests        | All pass; coverage does not regress             |
+| Integration tests | All service-contract tests pass                 |
+| Bundle size       | No regression beyond +5 KB gzipped              |
+| Accessibility     | No new axe-core violations                      |
+| Code review       | At least one approval from a project maintainer |
 
 ## Development Workflow
 
