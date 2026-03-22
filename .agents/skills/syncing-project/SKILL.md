@@ -1,6 +1,6 @@
 ---
 name: syncing-project
-description: Synchronizes the SpawnDock monorepo to its current state: pulls latest changes, detects and initializes new submodules, updates existing ones, verifies project integrity, and auto-fixes clear errors. For ambiguous errors, brainstorms solutions from specs and offers options. Use when the user asks to check or update project actuality, sync the project, update submodules, or says the project may be outdated.
+description: "Synchronizes the SpawnDock monorepo to its current state: pulls latest changes, detects and initializes new submodules, updates existing ones, verifies project integrity, and auto-fixes clear errors. For ambiguous errors, brainstorms solutions from specs and offers options. Use when the user asks to check or update project actuality, sync the project, update submodules, or says the project may be outdated."
 ---
 
 # Syncing Project
