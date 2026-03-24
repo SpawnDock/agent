@@ -4,8 +4,7 @@ All packages are published from **GitHub Actions**, not from a developer laptop.
 
 ## Repository secret
 
-Configure **`NPM_TOKEN`** (npm automation token with publish rights to `@spawn-dock/*`).  
-Legacy name **`NPM_KEY`** is still accepted by workflows as a fallback.
+Configure **`NPM_KEY`** — npm automation token with publish rights to `@spawn-dock/*` (used by all publish workflows).
 
 ## Workflows
 
