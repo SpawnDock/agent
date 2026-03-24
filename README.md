@@ -8,7 +8,7 @@ Combines all components as git submodules with a spec-driven development workflo
 ## Repository layout
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#ff8c00', 'primaryTextColor': '#1a1a1a', 'primaryBorderColor': '#e67300', 'lineColor': '#ff a500', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#ffe0b2', 'edgeLabelBackground': '#fff8f0', 'clusterBkg': '#fff8f0', 'clusterBorder': '#ff8c00'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#ff8c00', 'primaryTextColor': '#1a1a1a', 'primaryBorderColor': '#e67300', 'lineColor': '#ffa500', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#ffe0b2', 'edgeLabelBackground': '#fff8f0', 'clusterBkg': '#fff8f0', 'clusterBorder': '#ff8c00'}}}%%
 graph LR
   subgraph repo["repo/ — submodules"]
     api["api\nTelegram bot + MCP server\n+ tunnel control plane"]
