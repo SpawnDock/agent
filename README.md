@@ -1,124 +1,138 @@
 # SpawnDock Workspace
 
-This repository is the development workspace for the **SpawnDock** platform
+**Development workspace for the SpawnDock platform.**
+Combines all components as git submodules with a spec-driven development workflow powered by **speckit**.
 
-It combines the source code for all SpawnDock components with a spec-driven development workflow powered by **speckit**
+---
 
-## Repository Layout
+## Repository layout
 
+```mermaid
+graph LR
+  subgraph repo["repo/ — submodules"]
+    api["api\nTelegram bot + MCP server\n+ tunnel control plane"]
+    tma["tma-project\nNext.js + TON Connect\n+ Telegram UI"]
+    mcp["mcp-client\nstdio-to-SSE bridge\nfor AI agents"]
+    tunnel["dev-tunnel\nWebSocket tunnel client"]
+    cli["cli\nAI runtime launcher"]
+    create["create\nBootstrap CLI"]
+  end
+
+  subgraph specify[".specify/ — speckit"]
+    memory["memory/\nconstitution.md"]
+    specs["specs/\nfeature specifications"]
+    templates["templates/\ndocument templates"]
+  end
+
+  subgraph agents[".agents/"]
+    skills["skills/\nAI agent commands"]
+  end
 ```
-.
-├── repo/                        # Source code (git submodules)
-│   ├── api/                     # Backend: Telegram bot + MCP server + tunnel control plane
-│   ├── tma-project/             # TMA starter template (Next.js + TON Connect + TelegramUI)
-│   ├── mcp-client/              # @spawn-dock/mcp — stdio-to-SSE bridge for AI agents
-│   └── dev-tunnel/              # @spawn-dock/dev-tunnel — WebSocket tunnel client
-│
-├── .specify/                    # Spec-driven development artifacts
-│   ├── memory/
-│   │   └── constitution.md      # Project principles (code quality, testing, UX, performance)
-│   ├── specs/                   # Feature specifications (one folder per feature)
-│   └── templates/               # Document templates used by speckit commands
-│
-├── .agents/skills/              # AI agent command definitions (speckit)
-├── AGENTS.md                    # Agent-level instructions for this workspace
-└── WAL.md                       # Write-ahead log (read-only)
-```
 
-## Getting Started
+---
+
+## Getting started
 
 ### 1. Clone with submodules
 
 ```bash
 git clone --recurse-submodules git@github.com:SpawnDock/agent.git SpawnDock
-# or
-git clone --recurse-submodules https://github.com/SpawnDock/agent.git SpawnDock
-
 cd SpawnDock
 ```
 
-If you already cloned without `--recurse-submodules`:
+If already cloned without `--recurse-submodules`:
 
 ```bash
 git submodule update --init --recursive
 ```
 
-### 2. Work on a subproject
-
-Each directory under `repo/` is an independent package with its own `package.json`. Navigate into it and follow its own README:
+### 2. Install dependencies
 
 ```bash
 pnpm install --recursive
 ```
 
-## Spec-Driven Development Workflow
+Each directory under `repo/` is an independent package — navigate into it and follow its own README.
 
-This workspace uses **speckit** — an AI-assisted workflow for going from idea to implementation through structured documents. All commands are available as slash-commands in Cursor (via `.agents/skills/`).
+---
 
-### Workflow stages
+## Spec-driven development
 
+This workspace uses **speckit** — an AI-assisted workflow for going from idea to implementation through structured documents. All commands are slash-commands in Cursor (via `.agents/skills/`).
+
+### Workflow
+
+```mermaid
+flowchart TD
+  A["/speckit.constitution\nEstablish project principles"] --> B
+  B["/speckit.clarify\nAsk clarifying questions"] --> C
+  C["/speckit.specify\nWrite feature spec"] --> D
+  D["/speckit.plan\nCreate implementation plan"] --> E
+  E["/speckit.tasks\nBreak into task checklist"] --> F
+  F["/speckit.implement\nImplement tasks"] --> G
+  G["/speckit.checklist\nQA / review checklist"] --> H
+  H["/speckit.taskstoissues\nExport to GitHub Issues"]
+
+  style A fill:#2d333b,stroke:#539bf5,color:#adbac7
+  style B fill:#2d333b,stroke:#539bf5,color:#adbac7
+  style C fill:#2d333b,stroke:#539bf5,color:#adbac7
+  style D fill:#2d333b,stroke:#539bf5,color:#adbac7
+  style E fill:#2d333b,stroke:#539bf5,color:#adbac7
+  style F fill:#2d333b,stroke:#539bf5,color:#adbac7
+  style G fill:#2d333b,stroke:#539bf5,color:#adbac7
+  style H fill:#2d333b,stroke:#539bf5,color:#adbac7
 ```
-/speckit.constitution  →  Establish or update project principles
-       ↓
-/speckit.clarify       →  Ask clarifying questions about a feature idea
-       ↓
-/speckit.specify       →  Write a feature specification (user stories + requirements)
-       ↓
-/speckit.plan          →  Create a technical implementation plan
-       ↓
-/speckit.tasks         →  Break the plan into a checklist of concrete tasks
-       ↓
-/speckit.implement     →  Implement tasks one by one
-       ↓
-/speckit.checklist     →  Generate a QA/review checklist
-       ↓
-/speckit.taskstoissues →  Export tasks to GitHub Issues
-```
 
-You can enter the workflow at any stage. Each command reads the artifacts produced by earlier stages.
+You can enter the workflow at any stage. Each command reads artifacts produced by earlier stages.
 
-### Available commands
+### Commands
 
-| Command                  | What it does                                                                  |
-|--------------------------|-------------------------------------------------------------------------------|
-| `/speckit.constitution`  | Create or amend the project constitution in `.specify/memory/constitution.md` |
-| `/speckit.clarify`       | Generate clarifying questions before writing a spec                           |
-| `/speckit.specify`       | Create a feature spec from a plain-language description                       |
-| `/speckit.plan`          | Produce a technical design plan for a specified feature                       |
-| `/speckit.tasks`         | Break a plan into an ordered task list                                        |
-| `/speckit.implement`     | Work through tasks in the task list                                           |
-| `/speckit.checklist`     | Generate a QA checklist for a feature or domain                               |
-| `/speckit.analyze`       | Analyze existing code for quality, coverage, or design issues                 |
-| `/speckit.taskstoissues` | Convert a task list into GitHub Issues                                        |
+| Command | Description |
+| :--- | :--- |
+| `/speckit.constitution` | Create or amend project principles |
+| `/speckit.clarify` | Generate clarifying questions before writing a spec |
+| `/speckit.specify` | Create a feature spec from a plain-language description |
+| `/speckit.plan` | Produce a technical design plan |
+| `/speckit.tasks` | Break a plan into an ordered task list |
+| `/speckit.implement` | Work through tasks in the task list |
+| `/speckit.checklist` | Generate a QA checklist |
+| `/speckit.analyze` | Analyze code for quality, coverage, or design issues |
+| `/speckit.taskstoissues` | Convert a task list into GitHub Issues |
 
-### Example: starting a new feature
+### Example
 
 ```
 /speckit.specify Add a settings screen where users can change their display name
 ```
 
-This creates `.specify/specs/<number>-<slug>/spec.md` on a new git branch and populates it with prioritized user stories and acceptance criteria.
+Creates `.specify/specs/<number>-<slug>/spec.md` on a new branch with prioritized user stories and acceptance criteria.
 
-## Project Constitution
+---
 
-The project's non-negotiable principles live in `.specify/memory/constitution.md`. They govern:
+## Project constitution
 
-- **Code quality** — zero linter warnings, single responsibility, no dead code
-- **Testing standards** — TDD, 80% coverage floor, deterministic tests, CI gate
-- **UX consistency** — design tokens, WCAG 2.1 AA, error states, API contract stability
-- **Performance** — bundle ≤ 150 KB gzip, API p95 ≤ 500 ms, no N+1 queries
+Non-negotiable principles in `.specify/memory/constitution.md`:
 
-All pull requests must pass the quality gates defined there before merging.
+| Area | Standards |
+| :--- | :--- |
+| **Code quality** | Zero linter warnings, single responsibility, no dead code |
+| **Testing** | TDD, 80 % coverage floor, deterministic tests, CI gate |
+| **UX** | Design tokens, WCAG 2.1 AA, error states, API contract stability |
+| **Performance** | Bundle ≤ 150 KB gzip, API p95 ≤ 500 ms, no N+1 queries |
 
-## Feature Specifications
+All pull requests must pass these quality gates before merging.
 
-Completed specs live under `.specify/specs/`. Each spec folder corresponds to a git branch and contains:
+---
 
-| File       | Contents                                                            |
-|------------|---------------------------------------------------------------------|
-| `spec.md`  | User stories, functional requirements, success criteria             |
-| `plan.md`  | Technical design and implementation plan (added by `/speckit.plan`) |
-| `tasks.md` | Ordered task checklist (added by `/speckit.tasks`)                  |
+## Feature specifications
+
+Specs live under `.specify/specs/`. Each folder maps to a git branch:
+
+| File | Contents |
+| :--- | :--- |
+| `spec.md` | User stories, functional requirements, success criteria |
+| `plan.md` | Technical design and implementation plan |
+| `tasks.md` | Ordered task checklist |
 
 Current specs:
 
