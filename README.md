@@ -8,6 +8,7 @@ Combines all components as git submodules with a spec-driven development workflo
 ## Repository layout
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#ff8c00', 'primaryTextColor': '#1a1a1a', 'primaryBorderColor': '#e67300', 'lineColor': '#ff a500', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#ffe0b2', 'edgeLabelBackground': '#fff8f0', 'clusterBkg': '#fff8f0', 'clusterBorder': '#ff8c00'}}}%%
 graph LR
   subgraph repo["repo/ — submodules"]
     api["api\nTelegram bot + MCP server\n+ tunnel control plane"]
@@ -27,6 +28,17 @@ graph LR
   subgraph agents[".agents/"]
     skills["skills/\nAI agent commands"]
   end
+
+  style api fill:#ff8c00,stroke:#e67300,color:#fff
+  style tma fill:#ff8c00,stroke:#e67300,color:#fff
+  style mcp fill:#ff8c00,stroke:#e67300,color:#fff
+  style tunnel fill:#ff8c00,stroke:#e67300,color:#fff
+  style cli fill:#ff8c00,stroke:#e67300,color:#fff
+  style create fill:#ff8c00,stroke:#e67300,color:#fff
+  style memory fill:#ffb74d,stroke:#e67300,color:#1a1a1a
+  style specs fill:#ffb74d,stroke:#e67300,color:#1a1a1a
+  style templates fill:#ffb74d,stroke:#e67300,color:#1a1a1a
+  style skills fill:#ffe0b2,stroke:#e67300,color:#1a1a1a
 ```
 
 ---
@@ -63,6 +75,7 @@ This workspace uses **speckit** — an AI-assisted workflow for going from idea 
 ### Workflow
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#ff8c00', 'primaryTextColor': '#fff', 'primaryBorderColor': '#e67300', 'lineColor': '#ff8c00', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#ffe0b2'}}}%%
 flowchart TD
   A["/speckit.constitution\nEstablish project principles"] --> B
   B["/speckit.clarify\nAsk clarifying questions"] --> C
@@ -73,14 +86,16 @@ flowchart TD
   G["/speckit.checklist\nQA / review checklist"] --> H
   H["/speckit.taskstoissues\nExport to GitHub Issues"]
 
-  style A fill:#2d333b,stroke:#539bf5,color:#adbac7
-  style B fill:#2d333b,stroke:#539bf5,color:#adbac7
-  style C fill:#2d333b,stroke:#539bf5,color:#adbac7
-  style D fill:#2d333b,stroke:#539bf5,color:#adbac7
-  style E fill:#2d333b,stroke:#539bf5,color:#adbac7
-  style F fill:#2d333b,stroke:#539bf5,color:#adbac7
-  style G fill:#2d333b,stroke:#539bf5,color:#adbac7
-  style H fill:#2d333b,stroke:#539bf5,color:#adbac7
+  style A fill:#ff8c00,stroke:#e67300,color:#fff
+  style B fill:#ff9800,stroke:#e67300,color:#fff
+  style C fill:#ffa726,stroke:#e67300,color:#fff
+  style D fill:#ffb74d,stroke:#e67300,color:#1a1a1a
+  style E fill:#ffcc80,stroke:#e67300,color:#1a1a1a
+  style F fill:#ffb74d,stroke:#e67300,color:#1a1a1a
+  style G fill:#ffa726,stroke:#e67300,color:#fff
+  style H fill:#ff9800,stroke:#e67300,color:#fff
+
+  linkStyle default stroke:#ff8c00,stroke-width:2px
 ```
 
 You can enter the workflow at any stage. Each command reads artifacts produced by earlier stages.
