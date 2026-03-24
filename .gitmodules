@@ -18,4 +18,4 @@
 	url = git@github.com:SpawnDock/cli.git
 [submodule "repo/create"]
 	path = repo/create
-	url = git@github.com:SpawnDock/create-spawn-dock.git
+	url = git@github.com:SpawnDock/create.git
